@@ -5,7 +5,20 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxt/eslint',
-    '@nuxt/fonts',
-    '@nuxt/icon'
-  ]
+    '@nuxt/icon',
+    '@nuxtjs/google-fonts'
+  ],
+  css: ['~/assets/css/main.css'],
+  googleFonts: {
+    families: {
+      'Alegreya+Sans': {
+        wght: [300, 400, 700],
+        ital: [300]
+      }
+    },
+    subsets: ['latin', 'latin-ext', 'cyrillic'],
+    display: 'swap',
+    download: true,
+    inject: true
+  }
 })
