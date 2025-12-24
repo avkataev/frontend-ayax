@@ -5,9 +5,13 @@ import Sidebar from "~/shared/components/sidebar.vue";
 
 <template>
 <div>
-  Layout
+  <div class="max-w-5xl mx-auto py-4">
+    <h1 class="text-2xl font-bold uppercase">Агентство недвижимости</h1>
+  </div>
   <sidebar />
-  <slot/>
+  <div class="max-w-5xl mx-auto py-4">
+    <slot/>
+  </div>
 </div>
 </template>
 
