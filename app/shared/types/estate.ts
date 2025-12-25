@@ -1,15 +1,15 @@
 export enum EstatePropertyType {
-    apartment = 'Квартира',
-    house = 'Дом',
-    land = 'Участок',
+    Apartment = 'apartment',
+    House = 'house',
+    Land = 'land',
 }
 
 export enum EstateCategoryType {
-    commercial = 'Коммерция',
-    residential = 'Жилая'
+    Commercial = 'commercial',
+    Residential = 'residential',
 }
 
 export enum EstateDealType {
-    sale = 'Продажа',
-    rent = 'Покупка',
+    Sale = 'sale',
+    Rent = 'rent',
 }
