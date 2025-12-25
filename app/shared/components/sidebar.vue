@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type {RoutesItem} from "~/shared/types/routes";
+import InputSearch from "~/shared/components/input-search.vue";
 
 const routes = ref<RoutesItem[]>([
   {
@@ -23,7 +24,6 @@ const routes = ref<RoutesItem[]>([
       >{{ item.label }}
       </router-link>
     </div>
-
   </div>
 </template>
 
