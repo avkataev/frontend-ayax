@@ -1,17 +1,20 @@
 import { EstatePropertyType, EstateCategoryType, EstateDealType } from './estate'
 
 export const EstatePropertyTypeOptions = [
+    { label: 'Любой', value: '' },
     { label: 'Квартира', value: EstatePropertyType.Apartment },
     { label: 'Дом', value: EstatePropertyType.House },
     { label: 'Земля', value: EstatePropertyType.Land },
 ]
 
 export const EstateCategoryTypeOptions = [
+    { label: 'Любой', value: '' },
     { label: 'Коммерческая', value: EstateCategoryType.Commercial },
     { label: 'Жилая', value: EstateCategoryType.Residential },
 ]
 
 export const EstateDealTypeOptions = [
+    { label: 'Любой', value: '' },
     { label: 'Продажа', value: EstateDealType.Sale },
     { label: 'Аренда', value: EstateDealType.Rent },
 ]
