@@ -9,10 +9,14 @@ const props = defineProps({
     default: 'Поиск' // <-- по умолчанию текст
   }
 })
+
+const emit = defineEmits<{
+  (e: 'blur'): void
+}>()
 </script>
 
 <template>
-  <base-input :placeholder="placeholder" type="search" v-model="model">
+  <base-input @blur="() => emit('blur')" :placeholder="placeholder" type="search" v-model="model">
     <template #icon>
       <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
         <Icon name="uil:search" class="text-gray-400" />

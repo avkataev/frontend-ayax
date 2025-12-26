@@ -19,8 +19,6 @@ const formatDate = (date: Date | string) => {
 </script>
 
 <template>
-
-  <NuxtLoadingIndicator />
   <card class="flex flex-col">
     <img :src="estate.cover" :alt="estate.title" class="w-full h-48 object-cover rounded-lg mb-2">
     <div class="mb-2" >
