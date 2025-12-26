@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import InputSearch from "~/shared/components/input-search.vue";
-import {useEstates} from "~/features/estate/composables/estate.composable";
+import {useEstates} from "~/features/estate/composables/useEstates";
 import EstateCard from "~/features/estate/components/estate-card.vue";
-import {mapEstateResponseToEstate} from "~/features/estate/mappers/estate.mapper";
 import {
   EstatePropertyTypeOptions,
   EstateCategoryTypeOptions,
@@ -12,12 +11,11 @@ import BaseSelect from "~/shared/components/base-select.vue";
 import BaseInput from "~/shared/components/base-input.vue";
 import type {Estate} from "~/features/estate/models/estate.model";
 
-const {estates, loading} = useEstates()
-const search = ref('')
+const {estates} = useEstates()
 
 const estatesFiltred = computed(
     () => estates.value
-        ?.filter(estate => estate.title.toLowerCase().includes(search.value.toLowerCase()))
+        ?.filter(estate => estate.title.toLowerCase().includes(filters.search.toLowerCase()))
         .filter(estate => estate.property_type === filters.propertyType || !filters.propertyType)
         .filter(estate => estate.category_type === filters.categoryType || !filters.categoryType)
         .filter(estate => estate.deal_type === filters.dealType || !filters.dealType)
@@ -45,7 +43,7 @@ const filterPrice = (estate: Estate) => {
 <template>
   <div>
     <h2 class="text-2xl font-normal mb-4">Поиск недвижимости</h2>
-    <input-search v-model="search" class="mb-4"/>
+    <input-search v-model="filters.search" class="mb-4"/>
     <div class="flex gap-4 mb-4 items-center">
       <div class="flex-1">
         <label class="font-normal">Квадратура:</label>
@@ -76,14 +74,17 @@ const filterPrice = (estate: Estate) => {
     </div>
 
     <div v-if="estatesFiltred?.length" class="grid grid-cols-3 gap-2">
-      <estate-card
+      <router-link
           v-for="(item, index) in estatesFiltred"
-          :estate="item"
-          class="mb-2"
+          :to="'/estate/'+item.id"
           :key="index"
       >
-        {{ item }}
-      </estate-card>
+        <estate-card
+            :estate="item"
+            class="mb-2"
+        />
+      </router-link>
+
     </div>
     <div v-else class="text-lg">
       Нет данных для отображения
