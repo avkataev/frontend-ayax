@@ -8,9 +8,15 @@ export default <RouterConfig> {
             component: () => import('~/app/pages/index.vue')
         },
         {
-            name: 'Test',
+            name: 'estateList',
             path: '/estate/',
-            component: () => import('~/features/estate/pages/index.vue')
-        }
+            component: () => import('~/features/estate/pages/index.vue'),
+        },
+        {
+            name: 'estateItem',
+            path: '/estate/:estateId',
+            component: () => import('~/features/estate/pages/[estateId].vue'),
+            props: true,
+        },
     ],
 };

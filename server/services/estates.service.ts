@@ -4,4 +4,7 @@ export const EstatesService = {
     async findAll() {
         return estatesMock
     },
+    async findById(id: string) {
+        return estatesMock.find(estate => estate.id === id);
+    },
 }
