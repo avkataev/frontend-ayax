@@ -9,6 +9,10 @@ const props = defineProps<{
   min?: number
   max?: number
 }>()
+
+const emit = defineEmits<{
+  (e: 'blur'): void
+}>()
 </script>
 
 <template>
@@ -23,6 +27,7 @@ const props = defineProps<{
         :min="min"
         :max="max"
         required
+        @blur="() => emit('blur')"
     />
   </div>
 </template>

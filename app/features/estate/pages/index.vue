@@ -11,9 +11,9 @@ import BaseSelect from "~/shared/components/base-select.vue";
 import BaseInput from "~/shared/components/base-input.vue";
 import type {Estate} from "~/features/estate/models/estate.model";
 
-const {estates} = useEstates()
+const {estates} = useEstates({ immediate: true });
 
-const estatesFiltred = computed(
+const estatesFiltered = computed(
     () => estates.value
         ?.filter(estate => estate.title.toLowerCase().includes(filters.search.toLowerCase()))
         .filter(estate => estate.property_type === filters.propertyType || !filters.propertyType)
@@ -73,10 +73,10 @@ const filterPrice = (estate: Estate) => {
       />
     </div>
 
-    <div v-if="estatesFiltred?.length" class="grid grid-cols-3 gap-2">
+    <div v-if="estatesFiltered?.length" class="grid grid-cols-3 gap-2">
       <router-link
-          v-for="(item, index) in estatesFiltred"
-          :to="'/estate/'+item.id"
+          v-for="(item, index) in estatesFiltered"
+          :to="'/estate/' + item.id"
           :key="index"
       >
         <estate-card
@@ -93,5 +93,4 @@ const filterPrice = (estate: Estate) => {
 </template>
 
 <style scoped>
-
 </style>
