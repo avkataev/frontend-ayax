@@ -81,7 +81,7 @@ const filterPrice = (estate: Estate) => {
       >
         <estate-card
             :estate="item"
-            class="mb-2"
+            class="mb-2 h-full"
         />
       </router-link>
 
